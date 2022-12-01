@@ -17,7 +17,7 @@ export class EventosComponent {
   }
 
   getEventos(){
-    this.http.get('http://5000/api/eventos').subscribe(
+    this.http.get('http://localhost:5000/api/eventos').subscribe(
       response => this.eventos = response,
       error => console.log(error),
     );
