@@ -5,4 +5,8 @@
     <RootNamespace>ProEventos_Persistence</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ProEventos-Domain\ProEventos-Domain.csproj" />
+  </ItemGroup>
+
 </Project>
