@@ -1,5 +1,8 @@
 using System;
 using System.Collections.Generic;
+using ProEventos.Domain;
+using ProEventos;
+using ProEventos_Domain;
 
 namespace ProEventos.Domain
 {
@@ -13,8 +16,8 @@ namespace ProEventos.Domain
         public string ImagemURL { get; set; }
         public string Telefone { get; set; }
         public string Email { get; set; }
-        public IEquatable<Lote> Lote { get; set; }
-        public IEquatable<RedeSocial> RedesSociais { get; set; }
-        public IEquatable<PalestranteEvento> PalestrantesEventos { get; set; }
+        public IEnumerable<Lote> Lotes { get; set; }
+        public IEnumerable<RedeSocial> RedesSociais { get; set; }
+        public IEnumerable<PalestranteEvento> PalestrantesEventos { get; set; }
     }
 }

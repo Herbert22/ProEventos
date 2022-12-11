@@ -1,4 +1,5 @@
 using System;
+using ProEventos.Domain;
 
 namespace ProEventos_Domain
 {

@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-using ProEventos.API.Models;
-using ProEventos_API.Data;
+using ProEventos.Domain;
+using ProEventos_Persistence;
 
 namespace ProEventos_API.Controllers
 {
@@ -13,22 +10,42 @@ namespace ProEventos_API.Controllers
     [Route("api/[controller]")]
     public class EventosController : ControllerBase
     {
-        private readonly DataContext _context;
-        public EventosController(DataContext context)
+        private readonly ProEventosContext _context;
+        public EventosController(ProEventosContext context)
         {
             this._context = context;
         }
 
         [HttpGet]
-        public IEnumerable<Eventos> Get()
+        public IEnumerable<Evento> Get()
         {
             return _context.Eventos;
         }
 
         [HttpGet("id")]
-        public Eventos GetById( int id)
+        public Evento GetById( int id)
         {
-            return _context.Eventos.FirstOrDefault(evento => evento.EventoId == id);
+            return _context.Eventos.FirstOrDefault(
+                evento => evento.Id == id
+                );
+        }
+
+        [HttpPost]
+        public string Post()
+        {
+            return "Exemplo Post";
+        }
+
+        [HttpPut("{id}")]
+        public string Put(int id)
+        {
+            return $"Exemplo de Put com id = {id}";
+        }
+
+        [HttpDelete("{id}")]
+        public string Delete(int id)
+        {
+            return $"Exemplo de Delete com id = {id}";
         }
     }
 }
